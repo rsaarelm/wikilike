@@ -1,0 +1,56 @@
+Plain wiki front page
+
+The wiki pages are just text files. It's assumed you'll be mostly working in a
+text editor, so the plaintext view is the default view of the page. No jumping
+back and forth between a browser to see how the markup renders.
+
+Links to other wiki pages are just words in the text, like ExamplePage, using
+camel case syntax. A wiki mode syntax will highlight them in the editor. You
+navigate to them using your editor's "open file under cursor" command, `gf` in
+Vim.
+
+To write math stuff, just rig your editor to output unicode:
+
+𝒮[ϕ_i] = ∫ℒ (ϕ_i(s), 𝜕 ϕ_i(s) / 𝜕 s^α, s^α) d^n s
+
+Latex-unicoder at https://github.com/joom/latex-unicoder.vim works for Vim.
+
+To do tables, just use an editor plugin again.
+https://github.com/dhruvasagar/vim-table-mode.git works for Vim.
+
+| Z   | 0.00   | 0.01   | 0.02   | 0.03   | 0.04   | 0.05   | 0.06   | 0.07   | 0.08   | 0.09   |
+|-----+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
+| 0.0 | 0.0000 | 0.0040 | 0.0080 | 0.0120 | 0.0160 | 0.0199 | 0.0239 | 0.0279 | 0.0319 | 0.0359 |
+| 0.1 | 0.0398 | 0.0438 | 0.0478 | 0.0517 | 0.0557 | 0.0596 | 0.0636 | 0.0675 | 0.0714 | 0.0753 |
+| 0.2 | 0.0793 | 0.0832 | 0.0871 | 0.0910 | 0.0948 | 0.0987 | 0.1026 | 0.1064 | 0.1103 | 0.1141 |
+| 0.3 | 0.1179 | 0.1217 | 0.1255 | 0.1293 | 0.1331 | 0.1368 | 0.1406 | 0.1443 | 0.1480 | 0.1517 |
+| 0.4 | 0.1554 | 0.1591 | 0.1628 | 0.1664 | 0.1700 | 0.1736 | 0.1772 | 0.1808 | 0.1844 | 0.1879 |
+| 0.5 | 0.1915 | 0.1950 | 0.1985 | 0.2019 | 0.2054 | 0.2088 | 0.2123 | 0.2157 | 0.2190 | 0.2224 |
+
+To insert diagrams, well, you get the idea...
+
+     End System                      End System
+
+     +-------+                       +-------+
+     |   7   |                       |   7   |     Application Layer
+     +-------+                       +-------+
+     |   6   |                       |   6   |     Presentation Layer
+     +-------+                       +-------+
+     |   5   |      Intermediate     |   5   |     Session Layer
+     +-------+         System        +-------+
+     |   4   |                       |   4   |     Transport Layer
+     +-------+     +-----------+     +-------+
+     |   3   |     |     3     |     |   3   |     Network Layer
+     +-------+     +-----+-----+     +-------+
+     |   2   |     |  2  |  2  |     |   2   |     Data Link Layer
+     +-------+     +-----+-----+     +-------+
+     |   1   |     |  1  |  1  |     |   1   |     Physical Layer
+     +-------+     +-----+-----+     +-------+
+         |            |     |            |
+         +------------+     +----...-----+
+
+(plaintext diagram from http://www.cl.cam.ac.uk/~mgk25/osi-faq.txt)
+
+Admittedly, sometimes you will want actual pictures, and plaintext isn't
+going to cut it. Suggest you just use markdown's `![alt text](image_file.png)`
+for these. The hypothetical WebExporter will then turn these into images.

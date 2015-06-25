@@ -1,0 +1,16 @@
+THIS THING DOESN'T EXIST YET, but when it does, it'll convert the wiki pages
+into HTML.
+
+Since plaintext is the primary representation of plain wiki content, the
+exporter can't really use something like Markdown. Instead, it'll need to
+export things pretty much how they appear in a text editor, all monospaced and
+with every linebreak as is.
+
+The main extra thing needed are clickable hyperlinks. Actual urls need to be
+converted into clickable ones, and the camel case wiki words need to be
+converted into clickable relative links.
+
+Also, if there's a markdown-style image link, `![alt txt](image_file.png)` and
+it's the only thing on a line, it should be turned into an inline image.
+
+Maybe this can be made into a Jekyll plugin.
