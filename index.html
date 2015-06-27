@@ -74,16 +74,10 @@ a:visited { color: #A60; }
 
   // http://stackoverflow.com/questions/37684/how-to-replace-plain-urls-with-links
   function linkify(text) {
-      // Just in case the text has zero lines.
-      pageTitle = "";
-
       var lines = text.split('\n');
       var result = [];
 
       for (var i = 0; i < lines.length; i++) {
-          if (i == 0) {
-              pageTitle = lines[i];
-          }
           result.push(linkifyLine(lines[i]));
       }
 
@@ -91,19 +85,19 @@ a:visited { color: #A60; }
   }
 
   function loadPage() {
-      var text;
       if (window.location.hash) {
-          text = httpGet(window.location.hash.substr(1));
+          pageTitle = window.location.hash.substr(1);
       } else {
-          text = httpGet("ReadMe");
+          pageTitle = 'ReadMe';
       }
 
+      var text = httpGet(pageTitle);
       text = unhtml(text);
       text = linkify(text);
 
       document.getElementById("payload").innerHTML = text;
 
-      document.title = "wikilike: " + pageTitle;
+      document.title = pageTitle;
   }
   </script>
 
