@@ -20,12 +20,15 @@ a:visited { color: #A60; }
 
   function httpGet(theUrl)
   {
-    var xmlHttp = null;
-
-    xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false );
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
+    var request = new XMLHttpRequest();
+    request.open("GET", theUrl, false);
+    try {
+        request.send(null);
+        if (request.status == 404) { throw "Error"; }
+        return request.responseText;
+    } catch (e) {
+        return "*** Not found ***";
+    }
   }
 
   // http://stackoverflow.com/questions/5251520/how-do-i-escape-some-html-in-javascript
