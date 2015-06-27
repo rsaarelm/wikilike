@@ -53,4 +53,4 @@ To insert diagrams, well, you get the idea...
 
 Admittedly, sometimes you will want actual pictures, and plaintext isn't
 going to cut it. Suggest you just use markdown's `![alt text](image_file.png)`
-for these. The hypothetical WebExporter will then turn these into images.
+for these. The BrowserViewer will then turn these into images.

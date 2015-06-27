@@ -1,0 +1,71 @@
+<html>
+<head>
+</head>
+<body>  
+  <!-- run chromium with allow-file-access-from-files option to make this work locally -->
+
+  <script type="text/JavaScript">
+
+  // Set up a watcher process to reload the page on backnavigation.
+  var hash = window.location.hash;
+  setInterval(function(){
+      if (window.location.hash != hash) {
+          hash = window.location.hash;
+          window.location.reload(true);
+      }
+  }, 100);
+
+  function httpGet(theUrl)
+  {
+    var xmlHttp = null;
+
+    xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false );
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+  }
+
+  // http://stackoverflow.com/questions/5251520/how-do-i-escape-some-html-in-javascript
+  function unhtml(inputText) {
+      return inputText.replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+  }
+
+  // http://stackoverflow.com/questions/37684/how-to-replace-plain-urls-with-links
+  function linkify(inputText) {
+      var replacedText, hyperlink, image, wikiword;
+  
+      hyperlink = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
+      replacedText = inputText.replace(hyperlink, '<a href="$1">$1</a>');
+
+      image = /^\s*(!\[([^\]]*)\]\(([^\)]+)\))\s*$/gm;
+      replacedText = replacedText.replace(image, '<img alt="$2" src="$3" \>');
+  
+      // FIXME: Don't wikiWordify things put inside HTML tags by the
+      // previous two steps.
+      wikiword = /(\b[A-Z][a-z]+([A-Z][a-z]+|[0-9]+)+)\b/gm;
+      replacedText = replacedText.replace(wikiword, '<a href="#$1" onclick="window.location.reload(true)">$1</a>');
+
+      return replacedText;
+  }
+
+  var text;
+  if (window.location.hash) {
+      text = httpGet(window.location.hash.substr(1));
+  } else {
+      text = httpGet("FrontPage");
+  }
+
+  text = unhtml(text);
+  // Input should now be free of HTML stuff, we are free to add our
+  // own.
+
+  text = linkify(text);
+
+  document.write("<pre>");
+  document.write(text);
+  document.write("</pre>");
+  </script>
+</body>
+</html>

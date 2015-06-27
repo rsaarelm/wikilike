@@ -1,0 +1,25 @@
+The browser viewer is a javascript page that renders the wiki pages. No
+backend logic is needed, just an accessible directory where the script can
+load the wiki pages from. It even works on a local machine if you allow your
+browser to load non-http resources from javascript, eg. by starting chromium
+with --allow-file-access-from-files.
+
+Testing space:
+
+not wiki words:
+
+NAWikiWord
+1235NoWikiWord
+definitelyNotAnWikiWord
+NotWikiWorD
+
+wiki words:
+
+YesWikiWord
+Also1234WithNumbers
+
+Images on their own line:
+
+![Have a picture!](smile_dog.jpg)
+
+But inline is no-go. ![Have a picture!](smile_dog.jpg)
