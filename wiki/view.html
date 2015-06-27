@@ -5,13 +5,12 @@
   <!-- run chromium with allow-file-access-from-files option to make this work locally -->
 
   <script type="text/JavaScript">
-
   // Set up a watcher process to reload the page on backnavigation.
-  var hash = window.location.hash;
+  var hash = -1; // Weird initial value to guarantee initial page load.
   setInterval(function(){
       if (window.location.hash != hash) {
           hash = window.location.hash;
-          window.location.reload(true);
+          loadPage();
       }
   }, 100);
 
@@ -45,27 +44,27 @@
       // FIXME: Don't wikiWordify things put inside HTML tags by the
       // previous two steps.
       wikiword = /(\b[A-Z][a-z]+([A-Z][a-z]+|[0-9]+)+)\b/gm;
-      replacedText = replacedText.replace(wikiword, '<a href="#$1" onclick="window.location.reload(true)">$1</a>');
+      replacedText = replacedText.replace(wikiword, '<a href="#$1">$1</a>');
 
       return replacedText;
   }
 
-  var text;
-  if (window.location.hash) {
-      text = httpGet(window.location.hash.substr(1));
-  } else {
-      text = httpGet("FrontPage");
+  function loadPage() {
+      var text;
+      if (window.location.hash) {
+          text = httpGet(window.location.hash.substr(1));
+      } else {
+          text = httpGet("FrontPage");
+      }
+
+      text = unhtml(text);
+      text = linkify(text);
+
+      document.getElementById("payload").innerHTML = text;
   }
-
-  text = unhtml(text);
-  // Input should now be free of HTML stuff, we are free to add our
-  // own.
-
-  text = linkify(text);
-
-  document.write("<pre>");
-  document.write(text);
-  document.write("</pre>");
   </script>
+
+  <pre id="payload">
+  </pre>
 </body>
 </html>
