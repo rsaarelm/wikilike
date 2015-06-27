@@ -21,10 +21,10 @@ hi def link wikiWord Underlined
 EOF
 
 cat > ~/.vim/ftdetect/wiki.vim <<EOF
-autocmd BufRead,BufNewFile */wiki/* set filetype=wiki sts=2 tw=78 fo+=tr fo-=r
+autocmd BufRead,BufNewFile */wikilike/* set filetype=wiki sts=2 tw=78 fo+=tr fo-=r
 
 " Create a new buffer when gf-ing a wiki word that doesn't have a file yet. 
-autocmd BufRead,BufNewFile */wiki/* noremap gf :e <cfile><CR>
+autocmd BufRead,BufNewFile */wikilike/* noremap gf :e <cfile><CR>
 EOF
 
 exit
@@ -36,8 +36,8 @@ file. No scripts needed. You probably will want the file plugin this page will
 install since it will highlight the wiki words in the text.
 
 The Vim mode will activate the wikilike mode for any files that are under a
-/wiki/ subdirectory. The files themselves don't have an extension, so the file
-type detection needs to use the parent directory instead.
+/wikilike/ subdirectory. The files themselves don't have an extension, so the
+file type detection needs to use the parent directory instead.
 
 The "open file under cursor" command is remapped to create an empty file if
 one does not exist yet. This makes it easy to create new pages by first
