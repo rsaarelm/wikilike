@@ -23,6 +23,8 @@ Also1234WithNumbers
 
 Images on their own line:
 
-![Have a picture!](smile_dog.jpg)
+mandelbrot.png
 
-But inline is no-go. ![Have a picture!](smile_dog.jpg)
+But inline is no-go. mandelbrot.png
+
+Wanna see WikiWord things break? http://c2.com/cgi/wiki?WikiLikeThing rest of WikiWord line

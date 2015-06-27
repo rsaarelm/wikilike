@@ -45,8 +45,9 @@ a:visited { color: #A60; }
       hyperlink = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
       replacedText = inputText.replace(hyperlink, '<a href="$1">$1</a>');
 
-      image = /^\s*(!\[([^\]]*)\]\(([^\)]+)\))\s*$/gm;
-      replacedText = replacedText.replace(image, '<img alt="$2" src="$3" \>');
+      //image = /^\s*(!\[([^\]]*)\]\(([^\)]+)\))\s*$/gm;
+      image = /^\s*([-A-Z0-9_.]+\.(png|jpg|jpeg|gif|bmp))\s*$/gim;
+      replacedText = replacedText.replace(image, '<img src="$1" \>');
 
       // FIXME: Don't wikiWordify things put inside HTML tags by the
       // previous two steps.
