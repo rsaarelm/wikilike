@@ -42,7 +42,7 @@ To insert diagrams, well, you get the idea...
 
 Admittedly, sometimes you will want actual pictures, and plaintext isn't going
 to cut it. The BrowserViewer will turn an image file name ("picture.png",
-"image.jpg" etc.) into an inline image if it's the single thing on the line.
+"image.jpg" etc.) that's the only thing on a line into an inline image.
 
 Wiki words are set up to accept numbers as well, so you can write author -
 publishing year - title words style bibliography entries in your wiki, eg.

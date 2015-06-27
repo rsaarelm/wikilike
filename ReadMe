@@ -1,15 +1,13 @@
 Wikilike: A wiki with zero dedicated software
 
-If you live in a text editor, why would you use a wiki that requires a web
+You live in your text editor, so why would you use a wiki that requires a web
 browser to see if the markup renders correctly? With wikilike, the plaintext
-file is how the page is supposed to look like, and clickable hyperlinks are
-the only fancy formatting you get.
+file in your editor is how the page is supposed to look like.
 
 Want revision history? Version your wikilike in Git.
 
 Want collaborative editing? Give multiple people shell accounts on the machine
-that hosts the wiki files and access to the folder, if you trust them. Or use
-git pull requests.
+that hosts the wiki files. Or use git pull requests.
 
 Need even fancier stuff? See UseCases
 
@@ -20,5 +18,6 @@ just work.
 
 See VimSetup on how to configure Vim to work with wikilike.
 
-If you're viewing this from the HTML view, the wikilike repository is at
-https://github.com/rsaarelm/wikilike.
+If you're reading this from a web browser, you can go to
+https://github.com/rsaarelm/wikilike and grab your own copy of wikilike to use
+on your machine.
