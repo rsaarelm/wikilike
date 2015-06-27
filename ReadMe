@@ -15,3 +15,9 @@ Need even fancier stuff? See UseCases
 
 And if you host your wiki in a directory a webserver can get into, the
 BrowserViewer in index.html will magically create a web view of your wiki.
+
+Wikilike works as is as github pages, so the only branch needed is the
+gh-pages one.
+
+If you're viewing this from the HTML view, the wikilike repository is at
+https://github.com/rsaarelm/wikilike.
