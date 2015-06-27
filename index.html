@@ -9,6 +9,8 @@ a:visited { color: #A60; }
 </style>
 
   <script type="text/JavaScript">
+  var page_title = "";
+
   // Set up a watcher process to reload the page on backnavigation.
   var hash = -1; // Weird initial value to guarantee initial page load.
   setInterval(function(){
@@ -72,10 +74,16 @@ a:visited { color: #A60; }
 
   // http://stackoverflow.com/questions/37684/how-to-replace-plain-urls-with-links
   function linkify(text) {
+      // Just in case the text has zero lines.
+      pageTitle = "";
+
       var lines = text.split('\n');
       var result = [];
 
       for (var i = 0; i < lines.length; i++) {
+          if (i == 0) {
+              pageTitle = lines[i];
+          }
           result.push(linkifyLine(lines[i]));
       }
 
@@ -94,6 +102,8 @@ a:visited { color: #A60; }
       text = linkify(text);
 
       document.getElementById("payload").innerHTML = text;
+
+      document.title = "wikilike: " + pageTitle;
   }
   </script>
 
