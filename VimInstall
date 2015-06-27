@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# This is an executable page.
+# To install wikilike Vim mode, do `bash VimInstall` from the command line.
+
+mkdir -p ~/.vim/syntax
+mkdir -p ~/.vim/ftdetect
+
+cat > ~/.vim/syntax/wiki.vim <<EOF
+" Vim syntax file
+" Language: rsaarelm wiki
+" Maintainer: Risto Saarelma
+" Latest Revision: 2015-06-15
+
+if exists("b:current_syntax")
+  finish
+endif
+
+syn match wikiWord '\<\u\l\+\(\(\d\)\+\|\(\u\l\+\)\)\+\>'
+hi def link wikiWord Underlined
+EOF
+
+cat > ~/.vim/ftdetect/wiki.vim <<EOF
+autocmd BufRead,BufNewFile */wiki/* set filetype=wiki sts=2 tw=78 fo+=tr fo-=r
+
+" Create a new buffer when gf-ing a wiki word that doesn't have a file yet. 
+autocmd BufRead,BufNewFile */wiki/* noremap gf :e <cfile><CR>
+EOF
+
+exit
+########################################################################
+
+The Vim mode will activate the wikilike mode for any files that are under a
+/wiki/ subdirectory. The files themselves don't have an extension, so the file
+type detection needs to use the parent directory instead.
+
+The "open file under cursor" command is remapped to create an empty file if
+one does not exist yet. This makes it easy to create new pages by first
+writing the wiki word and then opening it.
