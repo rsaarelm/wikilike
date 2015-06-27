@@ -6,7 +6,7 @@
 mkdir -p ~/.vim/syntax
 mkdir -p ~/.vim/ftdetect
 
-cat > ~/.vim/syntax/wiki.vim <<EOF
+cat > ~/.vim/syntax/wikilike.vim <<EOF
 " Vim syntax file
 " Language: wikilike
 " Maintainer: Risto Saarelma
@@ -20,8 +20,8 @@ syn match wikiWord '\<\u\l\+\(\(\d\)\+\|\(\u\l\+\)\)\+\>'
 hi def link wikiWord Underlined
 EOF
 
-cat > ~/.vim/ftdetect/wiki.vim <<EOF
-autocmd BufRead,BufNewFile */wikilike/* set filetype=wiki sts=2 tw=78 fo+=tr fo-=r
+cat > ~/.vim/ftdetect/wikilike.vim <<EOF
+autocmd BufRead,BufNewFile */wikilike/* set filetype=wikilike sts=2 tw=78 fo+=tr fo-=r
 
 " Create a new buffer when gf-ing a wiki word that doesn't have a file yet. 
 autocmd BufRead,BufNewFile */wikilike/* noremap gf :e <cfile><CR>
