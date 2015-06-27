@@ -10,7 +10,7 @@ endif
 " Variant that allows numbers as well as Wiki Words.
 " This is needed for the Bibtex Authorlastname2012ArticleName citation id
 " format.
-syn match wikiWord '\u\l\+\(\(\d\)\+\|\(\u\l\+\)\)\+'
+syn match wikiWord '\<\u\l\+\(\(\d\)\+\|\(\u\l\+\)\)\+\>'
 
 " Original strict wikiwords
 "syn match wikiWord '\(\u\l\+\)\{2,}'
