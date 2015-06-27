@@ -4,6 +4,9 @@ load the wiki pages from. It even works on a local machine if you allow your
 browser to load non-http resources from javascript, eg. by starting chromium
 with --allow-file-access-from-files.
 
+With the special index.html file, you can just drop the wiki into a static web
+server directory and get a HTML view of the wiki by browsing to that dir.
+
 Testing space:
 
 not wiki words:

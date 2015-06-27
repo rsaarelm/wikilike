@@ -1,8 +1,12 @@
 <html>
 <head>
-</head>
-<body>  
-  <!-- run chromium with allow-file-access-from-files option to make this work locally -->
+
+<style>
+body { background: #111; color: #FC0; }
+a { color: #FF0; }
+a:visited { color: #A60; }
+
+</style>
 
   <script type="text/JavaScript">
   // Set up a watcher process to reload the page on backnavigation.
@@ -34,13 +38,13 @@
   // http://stackoverflow.com/questions/37684/how-to-replace-plain-urls-with-links
   function linkify(inputText) {
       var replacedText, hyperlink, image, wikiword;
-  
+
       hyperlink = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
       replacedText = inputText.replace(hyperlink, '<a href="$1">$1</a>');
 
       image = /^\s*(!\[([^\]]*)\]\(([^\)]+)\))\s*$/gm;
       replacedText = replacedText.replace(image, '<img alt="$2" src="$3" \>');
-  
+
       // FIXME: Don't wikiWordify things put inside HTML tags by the
       // previous two steps.
       wikiword = /(\b[A-Z][a-z]+([A-Z][a-z]+|[0-9]+)+)\b/gm;
@@ -64,6 +68,8 @@
   }
   </script>
 
+</head>
+<body>
   <pre id="payload">
   </pre>
 </body>
