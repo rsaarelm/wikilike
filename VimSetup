@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # This is an executable page.
-# To install wikilike Vim mode, do `bash VimSetup` from the command line.
+# To install the wikilike Vim mode, do `bash VimSetup` from the command line.
 
 mkdir -p ~/.vim/syntax
 mkdir -p ~/.vim/ftdetect
 
 cat > ~/.vim/syntax/wiki.vim <<EOF
 " Vim syntax file
-" Language: rsaarelm wiki
+" Language: wikilike
 " Maintainer: Risto Saarelma
 " Latest Revision: 2015-06-15
 
