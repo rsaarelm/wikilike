@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This is an executable page.
-# To install wikilike Vim mode, do `bash VimInstall` from the command line.
+# To install wikilike Vim mode, do `bash VimSetup` from the command line.
 
 mkdir -p ~/.vim/syntax
 mkdir -p ~/.vim/ftdetect

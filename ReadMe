@@ -8,16 +8,17 @@ the only fancy formatting you get.
 Want revision history? Version your wikilike in Git.
 
 Want collaborative editing? Give multiple people shell accounts on the machine
-that hosts the wiki files and access to the folder, if you can trust them. Or
-use git pull requests.
+that hosts the wiki files and access to the folder, if you trust them. Or use
+git pull requests.
 
 Need even fancier stuff? See UseCases
 
 And if you host your wiki in a directory a webserver can get into, the
-BrowserViewer in index.html will magically create a web view of your wiki.
+BrowserViewer in index.html will magically create a web view of your wiki. For
+example, you can put a wikilike at your Github gh-pages branch and it will
+just work.
 
-Wikilike works as is as github pages, so the only branch needed is the
-gh-pages one.
+See VimSetup on how to configure Vim to work with wikilike.
 
 If you're viewing this from the HTML view, the wikilike repository is at
 https://github.com/rsaarelm/wikilike.
