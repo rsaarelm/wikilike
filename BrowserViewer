@@ -27,4 +27,5 @@ mandelbrot.png
 
 But inline is no-go. mandelbrot.png
 
-Wanna see WikiWord things break? http://c2.com/cgi/wiki?WikiLikeThing rest of WikiWord line http://c2.com/cgi/wiki?WikiLikeThing WikiWord more rest.
+URLs with wiki word like text might be tricky, but we can handle them too.
+WikiWord http://c2.com/cgi/wiki?WikiLikeThing AnotherWikiWord
