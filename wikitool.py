@@ -22,7 +22,7 @@ class WikiPage:
 
 def all_pages():
     result = {}
-    path = "wiki/"
+    path = "."
     for f in [f for f in listdir(path) if isfile(join(path, f))]:
         if word_pattern.match(f):
             result[f] = WikiPage(f)
@@ -31,8 +31,8 @@ def all_pages():
 def show_unlinked():
     pages = all_pages()
     everything = set(pages.keys())
-    linked = set(['FrontPage'])
-    edge = set(pages['FrontPage'].links)
+    linked = set(['ReadMe'])
+    edge = set(pages['ReadMe'].links)
     while edge:
         link = edge.pop()
         if link not in linked:
@@ -59,7 +59,7 @@ def usage(err=0):
 """usage: %s <command>
 
 Commands:
-   unlinked     List pages not reachable from FrontPage
+   unlinked     List pages not reachable from the front page
    list         List all wiki pages
    snapshot     Save current state into a git commit
    missing      Links present in pages with no corresponding pages""" % argv[0])
