@@ -73,7 +73,7 @@ if __name__ == '__main__':
     elif argv[1] == 'list':
         for x in all_pages(): print(x)
     elif argv[1] == 'snapshot':
-        system("git add wiki/")
+        system("git add .")
         system("git commit -m 'Automated snapshot'")
     elif argv[1] == 'missing':
         show_missing()
