@@ -4,11 +4,11 @@ You live in your text editor, so why would you use a wiki that requires a web
 browser to see if the markup renders correctly? With wikilike, the plaintext
 file in your editor is how the page is supposed to look like.
 
-The initial idea of wikilike is that as long as your text editor has commands
-to open the file named under the cursor and to return to the previously opened
-file, you have a wiki system right there. All you need is a convention to use
-camel case wiki words as your links and make all your text files have
-corresponding wiki word names and no extensions, like ReadMe.
+As long as your text editor has commands to open the file named under the
+cursor and to return to the previously opened file, you have everything you
+need to run a wikilike. All you need is a convention to use camel case wiki
+words as your links and name all your files with corresponding wiki words and
+leave them extensionless.
 
 Want revision history? Version your wikilike in Git.
 
