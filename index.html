@@ -26,10 +26,11 @@
 
     function notFound() {
         document.getElementById("payload").innerHTML = "*** Not found ***";
-        document.title = "404";
+        document.title = "page not found";
     }
 
     function getPage() {
+        if (this.status != 200) { notFound(); return; }
         var text = unhtml(this.responseText);
         document.getElementById("payload").innerHTML = linkify(text);
     }
