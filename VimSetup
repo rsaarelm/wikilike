@@ -24,7 +24,8 @@ cat > ~/.vim/ftdetect/wikilike.vim <<EOF
 autocmd BufRead,BufNewFile */wikilike/* set filetype=wikilike sts=2 tw=78 fo+=tr fo-=r
 
 " Create a new buffer when gf-ing a wiki word that doesn't have a file yet. 
-autocmd BufRead,BufNewFile */wikilike/* noremap gf :e <cfile><CR>
+autocmd BufRead,BufNewFile */wikilike/* noremap <buffer> gf :e <cfile><CR>
+autocmd BufRead,BufNewFile */wikilike/* nnoremap <buffer> <CR> :e <cfile><CR>
 EOF
 
 exit
