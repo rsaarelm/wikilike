@@ -24,6 +24,9 @@ just work.
 
 See VimSetup on how to configure Vim to work with wikilike.
 
-If you're reading this from a web browser, you can go to
+If you're reading this from the wikilike web viewer, you can go to
 https://github.com/rsaarelm/wikilike and grab your own copy of wikilike to use
 on your machine.
+
+If you're reading this from a Git file viewer, you can go see the live version
+of this wikilike at https://rsaarelm.github.io/wikilike/
