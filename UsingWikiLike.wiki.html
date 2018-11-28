@@ -1,0 +1,67 @@
+UsingWikiLike
+
+Use WikiWord-s to refer to concepts. A WikiWord alone on a line is a title. A
+page that has multiple titles (like this one) is a MultiArticlePage.
+
+WritingWikiLike
+
+You can't write new pages from the browser, but you live in your text editor
+anyway, so why would you want to? Just go to the web server and write the
+files in Vim.
+
+The wikilike repository contains Vim syntax files for wikilike files that can
+be named *.wiki or *.wiki.html. (You want the .html suffix to have the web
+server think the files should have the `text/html` MIME type.)
+
+You get version history by versioning your wiki in git. You can have
+collaborative editing by giving other people Git commit access.
+
+Plain WikiWord links will be file-local on a MultiArticlePage and will point
+to a file of the WikiWord's name on a single article page. A WikiWord in
+brackets, eg. [UseCases] will always point out of file. You can also point to
+a specific article in an external MultiArticlePage: [UseCases#AsciiArt].
+
+If you want to write inline code and not have it interpreted as WikiWord-s,
+use backticks: `CamelCase`. For longer escaped texts, indent with at least
+four spaces:
+
+    SourceCodeExample
+    with multiple lines
+
+WikiLikeVimMode
+
+Write plaintext notes. Remember to add WikiLikeBoilerplate to new pages. Press
+`gd` to follow page-local links. Press `gf` to follow out-of-page links. Press
+`gx` to open hyperlinks.
+
+WikiWord
+
+WikiWord-s designate concepts. They are made of two or more `CamelCased`
+words. There's no other way of designating a WikiWord. This is the
+http://wiki.c2.com/?WikiWord original way of the wiki.
+
+The preferred way to pluralize a WikiWord is to use a hyphen separator,
+WikiWord -> WikiWord-s.
+
+WikiLikeBoilerplate
+
+Write
+
+    # &lt;style&gt;body{white-space:pre;font-family:monospace}&lt;/style&gt;
+    # &lt;script src="wikilike.js" charset="utf-8"&gt;&lt;/script&gt;
+
+to the bottom of every wikilike page. This makes the page load the wikilike
+conversion script when loaded in the browser. The technique has been
+shamelessly copied from https://casual-effects.com/markdeep/
+
+MultiArticlePage
+
+Most personal wikis end up a loose collection of stub articles. Going with the
+public wiki pattern of having each topic be a separate page, the stubs will
+be forgotten in the filesystem. There's often much less friction in just
+throwing a bunch of related items into a single file. So wikilike supports
+doing that, just have more than one WikiWord alone on the line to mark a page
+as a MultiArticlePage.
+
+# <style>body{white-space:pre;font-family:monospace}</style>
+# <script src="wikilike.js" charset="utf-8"></script>

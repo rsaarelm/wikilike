@@ -1,84 +1,12 @@
-<html>
-<head> <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<style>
-    body { background: #111; color: #FC0; } a { color: #FF0; } a:visited { color: #A60; }
-</style>
-</head>
-<body>
-<pre id="payload">The wikilike browser view requires JavaScript to run.</pre>
-<script type="text/JavaScript">
-    window.onhashchange = loadPage;
-    loadPage();
+WikiLike
 
-    function loadPage() {
-        var pageTitle = window.location.hash ? window.location.hash.substr(1) : 'ReadMe';
-        document.title = pageTitle;
-        beginLoad(pageTitle);
-    }
+A plaintext wiki that works on a static web server.
 
-    function beginLoad(theUrl) {
-        var request = new XMLHttpRequest();
-        request.onerror = notFound;
-        request.onload = getPage;
-        request.open("GET", theUrl, true);
-        try { request.send(); } catch (e) { notFound(); }
-    }
+* UsingWikiLike
+* UseCases
+* Licensed under UnLicense
 
-    function notFound() {
-        document.getElementById("payload").innerHTML = "*** Not found ***";
-        document.title = "page not found";
-    }
+https://github.com/rsaarelm/wikilike
 
-    function getPage() {
-        if (this.status != 200) { notFound(); return; }
-        var text = unhtml(this.responseText);
-        document.getElementById("payload").innerHTML = linkify(text);
-    }
-
-    // http://stackoverflow.com/questions/5251520/how-do-i-escape-some-html-in-javascript
-    function unhtml(text) {
-        return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    }
-
-    function linkify(text) {
-        var lines = text.split('\n');
-        var result = [];
-
-        for (var i = 0; i < lines.length; i++) {
-            result.push(linkifyLine(lines[i]));
-        }
-
-        return result.join("\n");
-    }
-
-    function linkifyLine(text) {
-        // Image link as the only thing on the line.
-        if (text.match(/^\s*([-A-Z0-9_.]+\.(png|jpg|jpeg|gif|bmp))\s*$/i)) {
-            return '<img src="'+text+'" />';
-        }
-
-        var replacedText, hyperlink, wikiword;
-
-        // http://stackoverflow.com/questions/37684/how-to-replace-plain-urls-with-links
-        hyperlink = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi;
-
-        // We must never apply wikiWordsToLinks to a hyperlink part of the input. So if the line
-        // has a hyperlink on it, split it into the hyperlinkless head, the hyperlink part and the
-        // tail. Process wikiwords in the head, process the hyperlink, then recurse to the tail.
-
-        var match = hyperlink.exec(text);
-        if (match) {
-            var head = text.substring(0, match.index);
-            var tail = text.substring(match.index + match[0].length);
-            return wikiWordsToLinks(head) + '<a href="'+match[0]+'">'+match[0]+'</a>' + linkifyLine(tail);
-        } else {
-            return wikiWordsToLinks(text);
-        }
-    }
-
-    function wikiWordsToLinks(text) {
-        return text.replace(/(\b[A-Z][a-z]+([A-Z][a-z]+|[0-9]+)+)\b/g, '<a href="#$1">$1</a>');
-    }
-</script>
-</body>
-</html>
+# <style>body{white-space:pre;font-family:monospace}</style>
+# <script src="wikilike.js" charset="utf-8"></script>

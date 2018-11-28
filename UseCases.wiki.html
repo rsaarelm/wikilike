@@ -1,8 +1,14 @@
-To write math stuff, just rig your editor to output unicode:
+UseCases
 
-𝒮[ϕ_i] = ∫ℒ (ϕ_i(s), 𝜕 ϕ_i(s) / 𝜕 s^α, s^α) d^n s
+MathNotes
 
-Latex-unicoder at https://github.com/joom/latex-unicoder.vim works for Vim.
+You can do lots with just printing unicode.
+
+F[ϕ_i] = ∫L(ϕ_i(s), ∂ϕ_i(s) / ∂s^α, s^α) d^n s
+
+See also https://www.unicode.org/notes/tn28/UTN28-PlainTextMath-v3.pdf
+
+AsciiArt
 
 To do tables, just use an editor plugin again.
 https://github.com/dhruvasagar/vim-table-mode.git works for Vim.
@@ -40,10 +46,45 @@ To insert diagrams, well, you get the idea...
 
 (plaintext diagram from http://www.cl.cam.ac.uk/~mgk25/osi-faq.txt)
 
+ImageArt
+
 Admittedly, sometimes you will want actual pictures, and plaintext isn't going
 to cut it. The BrowserViewer will turn an image file name ("picture.png",
 "image.jpg" etc.) that's the only thing on a line into an inline image.
 
+mandelbrot.png
+
+CitationDatabase
+
 Wiki words are set up to accept numbers as well, so you can write author -
 publishing year - title words style bibliography entries in your wiki, eg.
-Cunningham2001WikiWay.
+Cunningham01WikiWay.
+
+Bibtex is pretty good at ignoring everything outside its own markup blocks, so
+you might be able to get away with pasting bibtex notes all over your wiki and
+then just doing
+
+  $ cat ~/wikilike/* > references.bib
+
+whenever you need to latex up something.
+
+(And of course these files should have notes about the actual work being
+referenced, not general stuff about how to use a wiki bibliography.)
+
+Cunningham01WikiWay
+
+And here's the promised bibtex entry.
+
+@book{Cunningham01WikiWay,
+ author = {Leuf, Bo and Cunningham, Ward},
+ title = {The Wiki Way: Quick Collaboration on the Web},
+ year = {2001},
+ isbn = {0-201-71499-X},
+ publisher = {Addison-Wesley Longman Publishing Co., Inc.},
+ address = {Boston, MA, USA},
+}
+
+Freeform notes about this reference would go here.
+
+# <style>body{white-space:pre;font-family:monospace}</style>
+# <script src="wikilike.js" charset="utf-8"></script>
