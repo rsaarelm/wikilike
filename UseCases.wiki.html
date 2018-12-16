@@ -2,7 +2,7 @@ UseCases
 
 MathNotes
 
-You can do lots with just printing unicode.
+You can do lots by just writing unicode:
 
 F[ϕ_i] = ∫L(ϕ_i(s), ∂ϕ_i(s) / ∂s^α, s^α) d^n s
 
@@ -10,7 +10,7 @@ See also https://www.unicode.org/notes/tn28/UTN28-PlainTextMath-v3.pdf
 
 AsciiArt
 
-To do tables, just use an editor plugin again.
+To do tables, use a local editor plugin.
 https://github.com/dhruvasagar/vim-table-mode.git works for Vim.
 
 | Z   | 0.00   | 0.01   | 0.02   | 0.03   | 0.04   | 0.05   | 0.06   | 0.07   | 0.08   | 0.09   |
@@ -86,5 +86,29 @@ And here's the promised bibtex entry.
 
 Freeform notes about this reference would go here.
 
+InteractiveNotebook
+
+You can use Jangle (https://github.com/rsaarelm/jangle) together with wikilike
+to make your wiki page into an interactive J programming language notebook.
+Write J code indented seven spaces (4 spaces to get you into the escaped code
+block and 3 more to imitate the interactive J shell prompt convention) in the
+wiki page, then pipe the page through `jangle.py`:
+
+       erf   =: (1 H. 1.5)@*: * 2p_0.5&* % ^@:*:
+       NB. standard normal distribution cumulative distribution function
+       n01cdf=: -: @ >: @ erf @ %&(%:2)
+       (10%~i.6) n01cdf@+table 100%~i.10
+    ┌────────┬─────────────────────────────────────────────────────────────────────────────────────────┐ 
+    │n01cdf@+│       0     0.01     0.02     0.03     0.04     0.05     0.06     0.07     0.08     0.09│ 
+    ├────────┼─────────────────────────────────────────────────────────────────────────────────────────┤ 
+    │  0     │     0.5 0.503989 0.507978 0.511966 0.515953 0.519939 0.523922 0.527903 0.531881 0.535856│ 
+    │0.1     │0.539828 0.543795 0.547758 0.551717  0.55567 0.559618 0.563559 0.567495 0.571424 0.575345│ 
+    │0.2     │ 0.57926 0.583166 0.587064 0.590954 0.594835 0.598706 0.602568  0.60642 0.610261 0.614092│ 
+    │0.3     │0.617911  0.62172 0.625516   0.6293 0.633072 0.636831 0.640576 0.644309 0.648027 0.651732│ 
+    │0.4     │0.655422 0.659097 0.662757 0.666402 0.670031 0.673645 0.677242 0.680822 0.684386 0.687933│ 
+    │0.5     │0.691462 0.694974 0.698468 0.701944 0.705401  0.70884  0.71226 0.715661 0.719043 0.722405│ 
+    └────────┴─────────────────────────────────────────────────────────────────────────────────────────┘ 
+
+WikiFooter
 # <style>body{white-space:pre;font-family:monospace}</style>
 # <script src="wikilike.js" charset="utf-8"></script>
