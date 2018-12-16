@@ -1,3 +1,11 @@
+/* wikilike.js version history
+ *
+ * 2.0      2018-11-28
+ *          Rewritten to work as file reformatting footer script link.
+ *
+ * 1.0      2015-06-28
+ *          Initial single page application style implementation.
+ */
 if (!String.prototype.format) {
     String.prototype.format = function() {
         var args = arguments;
