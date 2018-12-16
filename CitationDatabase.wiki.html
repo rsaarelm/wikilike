@@ -1,0 +1,17 @@
+Wiki words are set up to accept numbers as well, so you can write author -
+publishing year - title words style bibliography entries in your wiki, eg.
+Cunningham01WikiWay.
+
+Bibtex is pretty good at ignoring everything outside its own markup blocks, so
+you might be able to get away with pasting bibtex notes all over your wiki and
+then just doing
+
+    $ cat ~/wikilike/* > references.bib
+
+whenever you need to latex up something.
+
+(And of course these files should have notes about the actual work being
+referenced, not general stuff about how to use a wiki bibliography.)
+
+# <style>body{white-space:pre;font-family:monospace}</style>
+# <script src="wikilike.js" charset="utf-8"></script>
