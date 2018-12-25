@@ -50,7 +50,7 @@ function formatLine(input, rules) {
     if (captionRe.test(input)) {
         return '<div id="'+input+'"></div><b>'+input+'</b>';
     // Image link as the only thing on the input.
-    } else if (input.match(/^([-A-Z0-9_.]+\.(png|jpg|jpeg|gif|bmp))$/i)) {
+    } else if (input.match(/^([-A-Z0-9_.\/]+\.(png|jpg|jpeg|gif|bmp))$/i)) {
         return '<img src="'+input+'"/>';
     } else if (input.match(/^    /)) {
         // Full-input escape. Don't expand wikiwords but always do hyperlinks.
